@@ -1,6 +1,5 @@
 lazy val root = (project in file(".")).
-  enablePlugins(ParadoxPlugin).
+  enablePlugins(ParadoxMaterialThemePlugin).
   settings(
-    name := "Atlas Docs",
-    paradoxTheme := Some(builtinParadoxTheme("generic"))
+    name := "Atlas Docs"
   )
