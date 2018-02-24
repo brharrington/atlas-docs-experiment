@@ -9,6 +9,10 @@
 
 In-memory dimensional time series database.
 
+@@@ asl
+name,sps,:eq,(,nf.cluster,),:by
+@@@
+
 ## H2
 
 ### H3
