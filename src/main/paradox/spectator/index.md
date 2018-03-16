@@ -1,5 +1,7 @@
 @@@ index
 
+* [Timers](timers.md)
+* [Netflix Integration](netflix.md)
 
 @@@
 
