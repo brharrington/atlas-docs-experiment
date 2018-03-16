@@ -3,7 +3,10 @@ lazy val root = (project in file("."))
   .enablePlugins(ParadoxSitePlugin)
   .settings(
     name := "Atlas Docs",
-    paradoxDirectives += StacklangDirective,
+    paradoxDirectives ++= Seq(
+      GraphDirective,
+      StacklangDirective
+    ),
     /*ParadoxMaterialThemePlugin.paradoxMaterialThemeSettings(Paradox),
     paradoxMaterialTheme in Paradox ~= {
       _.withFavicon("images/atlas_logo_small.png")
