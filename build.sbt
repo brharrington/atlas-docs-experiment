@@ -6,8 +6,8 @@ lazy val root = (project in file("."))
     paradoxDirectives += StacklangDirective,
     /*ParadoxMaterialThemePlugin.paradoxMaterialThemeSettings(Paradox),
     paradoxMaterialTheme in Paradox ~= {
-      _.withFavicon("src/main/paradox/images/atlas_logo_small.png")
-        .withLogo("src/main/paradox/images/atlas_logo_small.png")
+      _.withFavicon("images/atlas_logo_small.png")
+        .withLogo("images/atlas_logo_small.png")
         .withRepository(uri("https://github.com/brharrington/atlas-docs"))
     },*/
     paradoxGroups := Map("Language" -> Seq("Java", "Python")),
