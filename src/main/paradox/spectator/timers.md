@@ -36,42 +36,30 @@ Long task timer:
 
 To get started create an instance using the registry:
 
-```java
-public class Server {
+Java
+: @@snip [TimerExample.java](../../java/examples/TimerExample.java) { #setup }
 
-  private final Registry registry;
-  private final Timer requestLatency;
+Python
+: @@snip [timer-example.py](../../python/timer-example.py) { #setup }
 
-  @Inject
-  public Server(Registry registry) {
-    this.registry = registry;
-    requestLatency = registry.timer("server.requestLatency");
-  }
-```
+Then wrap the call you need to measure, preferably using @java[a lambda]@python[a with
+statement]:
 
-Then wrap the call you need to measure, preferably using a lambda:
+Java
+: @@snip [TimerExample.java](../../java/examples/TimerExample.java) { #using-lambda }
 
-```java
-  public Response handle(Request request) {
-    return requestLatency.record(() -> handleImpl(request));
-  }
-```
+Python
+: @@snip [timer-example.py](../../python/timer-example.py) { #using-with }
 
 The lambda variants will handle exceptions for you and ensure the
 record happens as part of a finally block using the monotonic time.
 It could also have been done more explicitly like:
 
-```java
-  public Response handle(Request request) {
-    final long start = registry.clock().monotonicTime();
-    try {
-      return handleImpl(request);
-    } finally {
-      final long end = registry.clock().monotonicTime();
-      requestLatency.record(end - start, TimeUnit.NANOSECONDS);
-    }
-  }
-```
+Java
+: @@snip [TimerExample.java](../../java/examples/TimerExample.java) { #explicitly }
+
+Python
+: @@snip [timer-example.py](../../python/timer-example.py) { #explicitly }
 
 This example uses the clock from the registry which can be useful for
 testing if you need to control the timing. In actual usage it will typically

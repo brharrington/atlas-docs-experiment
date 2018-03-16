@@ -1,5 +1,7 @@
 # Netflix Integration
 
+@@@ div { .group-java }
+
 When running at Netflix, use the `atlas-client` library to enable transferring the
 instrumented data to [Atlas](http://github.com/Netflix/atlas/wiki/). See the appropriate
 section for the type of project you are working on:
@@ -122,10 +124,14 @@ If using `base-server`, then you will get the Spectator and Atlas bindings autom
 
 ## Auto Plugin
 
-@@@ warning
+@@@
+
+@@@ warning { .group-java }
 **Deprecated**: Use of AutoBindSingleton is generally discouraged. It is recommended to
 use one of the other methods.
 @@@
+
+@@@ div { .group-java }
 
 If you are only interested in getting the GC logging, there is a library with an auto-bind
 singleton that can be used:
@@ -136,3 +142,35 @@ com.netflix.spectator:spectator-nflx:0.62.0
 
 Assuming you are using karyon/base-server or governator with `com.netflix` in the list of base
 packages then the plugin should get automatically loaded.
+
+@@@
+
+@@@ div { .group-python }
+
+When running at Netflix, use the `nflx-spectator-config` library to enable transferring the
+instrumented data to [Atlas](http://github.com/Netflix/atlas/wiki/). See the appropriate
+section for the type of project you are working on:
+
+* [Libraries](#libraries)
+* [Applications](#applications), specifically standalone apps using guice or governator directly.
+* [Winston](#winston)
+
+## Libraries
+
+Libraries should use the open source library directly and allow the application to determine
+how it is configured.
+
+```
+pip install netflix-spectator-py
+```
+
+## Applications
+
+Should include a dependency on `nflx-spectator-config` to get the right settings for publishing
+internally.
+
+## Winston
+
+If using Winston, then you will get the Spectator and Atlas bindings automatically.
+
+@@@
