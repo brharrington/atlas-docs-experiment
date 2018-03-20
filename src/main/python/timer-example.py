@@ -1,5 +1,5 @@
 
-from netflix.spectator import GlobalRegistry
+from spectator import GlobalRegistry
 
 #setup
 class TimerExample:

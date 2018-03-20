@@ -152,7 +152,7 @@ instrumented data to [Atlas](http://github.com/Netflix/atlas/wiki/). See the app
 section for the type of project you are working on:
 
 * [Libraries](#libraries)
-* [Applications](#applications), specifically standalone apps using guice or governator directly.
+* [Applications](#applications)
 * [Winston](#winston)
 
 ## Libraries
